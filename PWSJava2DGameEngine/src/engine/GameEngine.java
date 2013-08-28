@@ -89,7 +89,7 @@ public class GameEngine extends JFrame
         /** 
          * This method will set up everything need for the game to run 
          */ 
-        void initialize() 
+       public void initialize() 
         { 
                 setTitle("Game Tutorial"); 
                 setSize(windowWidth, windowHeight); 
