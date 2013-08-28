@@ -18,6 +18,10 @@ public class GameEngine extends JFrame
 {        
 	private static final long serialVersionUID = 1L;
 		
+	
+	private BufferedImage spritesheet = null;
+	
+	
 	BufferedImage backbuffer;
 	Image background = null;
 	Image Character = null;
@@ -34,8 +38,8 @@ public class GameEngine extends JFrame
 	
 		boolean isRunning = true; 
         int fps = 30; 
-        int windowWidth = 1280; 
-        int windowHeight = 1024; 
+        int windowWidth = 500; 
+        int windowHeight = 500; 
         
         
         Insets insets; 
@@ -99,6 +103,17 @@ public class GameEngine extends JFrame
                 
                 backbuffer = new BufferedImage(windowWidth, windowHeight, BufferedImage.TYPE_INT_RGB); 
                 input = new InputHandler(this); 
+                
+                
+                BufferedImageLoader loader = new BufferedImageLoader();
+                try{
+                	
+                	spritesheet = loader.loadImage("res/textures/TileSheet.png");
+                	
+                }catch(IOException e){
+                	e.printStackTrace();
+                }
+                
         } 
         
         /** 
@@ -137,7 +152,7 @@ public class GameEngine extends JFrame
                 
                 
                 //bbg.setColor(Color.RED); 
-                bbg.drawImage(Character, 640, 512, this); 
+                bbg.drawImage(Character, 250, 250, this); 
 
                 g.drawImage(backbuffer,0 , 0, this);
                 bbg.drawImage(background, x, y, this); 
